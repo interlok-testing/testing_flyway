@@ -1,0 +1,101 @@
+<adapter>
+  <unique-id>flyway</unique-id>
+  <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
+  <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
+  <shared-components>
+    <connections>
+	  <flyway-jdbc-connection>
+        <unique-id>flyway-connection</unique-id>
+        <connection-attempts>3</connection-attempts>
+        <connection-retry-interval>
+          <unit>SECONDS</unit>
+          <interval>3</interval>
+        </connection-retry-interval>
+        <driver-imp>${mariadbDriver}</driver-imp>
+        <username>${mariadbUsername}</username>
+        <password>${mariadbPassword}</password>
+        <connect-url>${mariadbUrl}</connect-url>
+        <flyway class="flyway-jdbc-migrator">
+          <flyway-location>filesystem:./config/flyway/mariadb</flyway-location>
+        </flyway>
+      </flyway-jdbc-connection>
+    </connections>
+    <services/>
+  </shared-components>
+  <event-handler class="default-event-handler">
+    <unique-id>DefaultEventHandler</unique-id>
+    <connection class="null-connection">
+      <unique-id>zen-wing</unique-id>
+    </connection>
+    <producer class="null-message-producer">
+      <unique-id>awesome-mirzakhani</unique-id>
+    </producer>
+  </event-handler>
+  <message-error-handler class="null-processing-exception-handler">
+    <unique-id>desperate-heisenberg</unique-id>
+  </message-error-handler>
+  <failed-message-retrier class="no-retries">
+    <unique-id>thirsty-euclid</unique-id>
+  </failed-message-retrier>
+  <channel-list>
+    <channel>
+      <consume-connection class="null-connection"/>
+      <produce-connection class="null-connection"/>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="polling-trigger">
+            <unique-id>eager-ritchie</unique-id>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>SECONDS</unit>
+                <interval>20</interval>
+              </poll-interval>
+            </poller>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>kickass-jang</unique-id>
+            <services>
+              <jdbc-data-query-service>
+                <unique-id>gloomy-murdock</unique-id>
+                <connection class="jdbc-connection">
+                  <unique-id>infallible-shirley</unique-id>
+                  <connection-attempts>3</connection-attempts>
+                  <connection-retry-interval>
+                    <unit>SECONDS</unit>
+                    <interval>3</interval>
+                  </connection-retry-interval>
+                  <driver-imp>${mariadbDriver}</driver-imp>
+                  <username>${mariadbUsername}</username>
+                  <password>${mariadbPassword}</password>
+                  <connect-url>${mariadbUrl}</connect-url>
+                </connection>
+                <parameter-applicator class="sequential-parameter-applicator"/>
+                <statement-creator class="jdbc-configured-sql-statement">
+                  <statement>select `first_name`, `last_name`, `username` from account</statement>
+                </statement-creator>
+                <result-set-translator class="jdbc-xml-payload-translator">
+                  <column-name-style>NoStyle</column-name-style>
+                </result-set-translator>
+              </jdbc-data-query-service>
+              <log-message-service>
+                <unique-id>log-message</unique-id>
+                <log-level>DEBUG</log-level>
+                <log-prefix>-- DB Results ---</log-prefix>
+              </log-message-service>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>peaceful-wescoff</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>flyway</unique-id>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>flyway</unique-id>
+    </channel>
+  </channel-list>
+  <message-error-digester class="standard-message-error-digester">
+    <unique-id>ErrorDigest</unique-id>
+    <digest-max-size>100</digest-max-size>
+  </message-error-digester>
+</adapter>

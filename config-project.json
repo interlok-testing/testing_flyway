@@ -1,0 +1,24 @@
+{
+  "name" : "flyway",
+  "variableSets" : {
+    "default" : { }
+  },
+  "variableXpaths" : {
+    "/adapter/shared-components/connections/flyway-jdbc-connection[unique-id=\"flyway-connection\"]/password" : "${mariadbPassword}",
+    "/adapter/shared-components/connections/flyway-jdbc-connection[unique-id=\"flyway-connection\"]/username" : "${mariadbUsername}",
+    "/adapter/shared-components/connections/flyway-jdbc-connection[unique-id=\"flyway-connection\"]/driver-imp" : "${mariadbDriver}",
+    "/adapter/shared-components/connections/flyway-jdbc-connection[unique-id=\"flyway-connection\"]/connect-url" : "${mariadbUrl}",
+    "/adapter/channel-list/channel[unique-id=\"flyway\"]/workflow-list/standard-workflow[unique-id=\"flyway\"]/service-collection/services/jdbc-data-query-service[unique-id=\"gloomy-murdock\"]/connection/username" : "${mariadbUsername}",
+    "/adapter/channel-list/channel[unique-id=\"flyway\"]/workflow-list/standard-workflow[unique-id=\"flyway\"]/service-collection/services/jdbc-data-query-service[unique-id=\"gloomy-murdock\"]/connection/password" : "${mariadbPassword}",
+    "/adapter/channel-list/channel[unique-id=\"flyway\"]/workflow-list/standard-workflow[unique-id=\"flyway\"]/service-collection/services/jdbc-data-query-service[unique-id=\"gloomy-murdock\"]/connection/driver-imp" : "${mariadbDriver}",
+    "/adapter/channel-list/channel[unique-id=\"flyway\"]/workflow-list/standard-workflow[unique-id=\"flyway\"]/service-collection/services/jdbc-data-query-service[unique-id=\"gloomy-murdock\"]/connection/connect-url" : "${mariadbUrl}"
+  },
+  "uidInXincludeCompntListFileName" : false,
+  "xincludeXpaths" : { },
+  "additionalFiles" : {
+    "bootstrap.properties" : "bootstrap.properties",
+    "log4j2.xml" : "log4j2.xml"
+  },
+  "optionalComponentsInUse" : [ "com.adaptris:interlok-flyway:4.0-SNAPSHOT" ],
+  "structured" : true
+}

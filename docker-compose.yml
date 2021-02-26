@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+
+  mariadb:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: accounts
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb 
+    ports:
+      - 8085:8080
