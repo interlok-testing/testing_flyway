@@ -1,5 +1,8 @@
 # Flyway Testing
 
+[![license](https://img.shields.io/github/license/interlok-testing/testing_flyway.svg)](https://github.com/interlok-testing/testing_flyway/blob/develop/LICENSE)
+[![Actions Status](https://github.com/interlok-testing/testing_flyway/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/interlok-testing/testing_flyway/actions/workflows/gradle-build.yml)
+
 Project tests interlok-flyway features
 
 ## What it does
