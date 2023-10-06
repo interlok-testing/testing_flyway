@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   mariadb:
-    image: mariadb:10.4
+    image: mariadb:11.1
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: accounts

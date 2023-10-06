@@ -87,7 +87,6 @@
           <producer class="null-message-producer">
             <unique-id>peaceful-wescoff</unique-id>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>flyway</unique-id>
         </standard-workflow>
       </workflow-list>

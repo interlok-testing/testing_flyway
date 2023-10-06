@@ -36,8 +36,14 @@ mariadbUrl=jdbc:mariadb://${mariadbHost}:${mariadbPort}/accounts
 mariadbDriver=org.mariadb.jdbc.Driver
 ```
 
+## Notes
+
+- Interlok UI is not enabled in this build.
+- **build.gradle** need to include dependencies on `org.mariadb.jdbc:mariadb-java-client:3.2.0` as we are using MariaDB but also, since vesion 8+ Flyway, on `org.flywaydb:flyway-mysql:8.5.13` to work with MySQL and MariaDB.
+The same would apply to Microsoft SQLServer if this was used.
+
 ## Also
 
 The docker-compose file also creat a animer container so you can easily check the content of MariaDB.
 
-Just go to http://http://localhost:8085/ and enter the MariaDB credenials.
+Just go to http://localhost:8085/ and enter the MariaDB credenials.

@@ -7,7 +7,7 @@ ext {
   interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v5/build.gradle"
   interlokVersion = '5.0-SNAPSHOT'
   // Include the WAR file since by default it is excluded.
-  includeWar='true'
+  includeWar='false'
 }
 
 allprojects {
@@ -19,8 +19,9 @@ allprojects {
 
 dependencies {
   interlokRuntime ("com.adaptris:interlok-flyway:$interlokVersion") { changing=true }
-  
-  interlokRuntime ("org.mariadb.jdbc:mariadb-java-client:2.7.2")
+
+  interlokRuntime ("org.flywaydb:flyway-mysql:8.5.13") { changing=true }
+  interlokRuntime ("org.mariadb.jdbc:mariadb-java-client:3.2.0")
   
   interlokJavadocs group: "com.adaptris", name: "interlok-flyway", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   
