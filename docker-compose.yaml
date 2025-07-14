@@ -1,18 +1,19 @@
 version: '3.9'
 
 services:
-
+  interlok:
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      JAVA_OPTS:
   mariadb:
     image: mariadb:11.1
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: accounts
-    ports:
-      - 3306:3306
-
+    hostname: 'mariadb-1'
   adminer:
     image: adminer
     environment:
-      ADMINER_DEFAULT_SERVER: mariadb 
-    ports:
-      - 8085:8080
+      ADMINER_DEFAULT_SERVER: mariadb
