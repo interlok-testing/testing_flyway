@@ -6,7 +6,6 @@ plugins {
 ext {
   testingCommonGradle = "https://raw.githubusercontent.com/interlok-testing/testing_common/refs/heads/master/common.gradle?timestamp=${new Date().getTime()}"
 //  testingCommonGradle = "../testing_common/common.gradle"
-  interlokTestingVersion = "0.1"
   includeWar='true'
 }
 
@@ -24,9 +23,7 @@ dependencies {
   interlokRuntime ("org.mariadb.jdbc:mariadb-java-client:3.2.0")
   
   interlokJavadocs group: "com.adaptris", name: "interlok-flyway", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
-  
-  interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
-  testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
+
   testImplementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.5.2'
 }
 
